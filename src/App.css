@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 10vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.nav-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.nav-list li a{
+  padding: 10px 25px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
