@@ -1,40 +1,56 @@
 import React, { Component } from 'react';
 
+
+
 class Lists extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            todolists:[{
-                id:1,
-                name:"task1"
-            },{
-                id:2,
-                name:"task2"
-            }]
-        }
-        
-    }
-
+   
    
     render() {
         return (
             <div>
-                <h2>Lists</h2>
                 <table>
                     <thead>
-
+                        <tr>
+                            <th>
+                                Tasks
+                            </th>
+                            <th colSpan="2">
+                                Actions
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                         
                     {
-                        this.state.todolists.map(todo => (  
-                        <tr key={todo.id}>
-                        <td>
-                            {todo.name}
-                        </td>
+                        (this.props.todolists.length > 0) ?
+                        this.props.todolists.map(todo => (  
+                            (!todo.edit) ? 
+                            <tr key={todo.id}>
+                                <td width="80%">
+                                    {todo.todoitem}
+                                </td>
+                                <td>
+                                    <button onClick={()=>{this.props.editTodo(todo.id)}} className="btn blue">edit</button>
+                                </td>
+                                <td>
+                                    <button onClick={()=>{this.props.deleteTodo(todo.id)}} className="btn red">delete</button>
+                                </td>
+                            </tr>
+                            : 
+                            <tr key={todo.id}>
+                                 <td width="80%" colSpan="2">
+                                    <input type="text" defaultValue={todo.todoitem}></input>
+                                </td>
+                                <td >
+                                    <button  className="btn red">cancel</button>
+                                </td>
+                            </tr>
+                        
+                        )) : 
+                        <tr>
+                            <td colSpan="2">No items found</td>
                         </tr>
-                        ))
                     }
                    
                    </tbody>

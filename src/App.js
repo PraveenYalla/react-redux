@@ -14,7 +14,7 @@ function App() {
       <Router>
       <Header></Header>
       <Switch>
-        <Route path="/home" component={Landing} />
+        <Route path="/" exact component={Landing} />
         <Route exact path="/todoApp" component={todoApp} />
         </Switch>
       </Router>
